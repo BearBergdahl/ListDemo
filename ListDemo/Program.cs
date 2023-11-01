@@ -15,13 +15,12 @@ namespace ListDemo
             ClientService clientService = new ClientService();
             for (int i = 0; i < 5; i++) 
             {
-                var response = clientService.GetInsult();
-                
+                var response = clientService.GetInsult();                
                 rawInsults.Add(response);  
             }
-            
-            
+                        
             List<string> textInsults = DeserializeResponses(rawInsults);
+            int hash = textInsults.GetHashCode();
             foreach(var text in textInsults)
             {
                 Console.WriteLine(text);
